@@ -45,10 +45,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -148,9 +160,237 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\Address.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AddressType.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\adventureWorks.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>adventureWorks.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\adventureWorks.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\adventureWorks.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>adventureWorks.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AWBuildVersion.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BillOfMaterial.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BusinessEntity.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BusinessEntityAddress.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BusinessEntityContact.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ContactType.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CountryRegion.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CountryRegionCurrency.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CreditCard.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Culture.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Currency.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CurrencyRate.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Customer.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DatabaseLog.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Department.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EmailAddress.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Employee.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EmployeeDepartmentHistory.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EmployeePayHistory.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ErrorLog.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Illustration.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\JobCandidate.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Location.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Password.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Person.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PersonCreditCard.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PersonPhone.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PhoneNumberType.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Product.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductCategory.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductCostHistory.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductDescription.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductDocument.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductInventory.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductListPriceHistory.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductModel.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductModelIllustration.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductModelProductDescriptionCulture.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductPhoto.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductProductPhoto.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductReview.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductSubcategory.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductVendor.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PurchaseOrderDetail.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PurchaseOrderHeader.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SalesOrderDetail.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SalesOrderHeader.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SalesOrderHeaderSalesReason.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SalesPerson.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SalesPersonQuotaHistory.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SalesReason.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SalesTaxRate.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SalesTerritory.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SalesTerritoryHistory.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ScrapReason.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Shift.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ShipMethod.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ShoppingCartItem.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SpecialOffer.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SpecialOfferProduct.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StateProvince.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Store.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TransactionHistory.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TransactionHistoryArchive.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UnitMeasure.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Vendor.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WorkOrder.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WorkOrderRouting.cs">
+      <DependentUpon>adventureWorks.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\SpreadsheetBuilder.cs" />
+    <Compile Include="Models\ReportQuery.cs" />
+    <Compile Include="Models\SaleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,15 +398,285 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Data\adventureWorks.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>adventureWorks.Context.cs</LastGenOutput>
+      <DependentUpon>adventureWorks.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\adventureWorks.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>adventureWorks.edmx</DependentUpon>
+      <LastGenOutput>adventureWorks.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="plugins\datatables\dataTables.bootstrap.css" />
+    <Content Include="plugins\datatables\dataTables.bootstrap.js" />
+    <Content Include="plugins\datatables\dataTables.bootstrap.min.js" />
+    <Content Include="plugins\datatables\extensions\AutoFill\css\dataTables.autoFill.css" />
+    <Content Include="plugins\datatables\extensions\AutoFill\css\dataTables.autoFill.min.css" />
+    <Content Include="plugins\datatables\extensions\AutoFill\examples\columns.html" />
+    <Content Include="plugins\datatables\extensions\AutoFill\examples\complete-callback.html" />
+    <Content Include="plugins\datatables\extensions\AutoFill\examples\fill-both.html" />
+    <Content Include="plugins\datatables\extensions\AutoFill\examples\fill-horizontal.html" />
+    <Content Include="plugins\datatables\extensions\AutoFill\examples\index.html" />
+    <Content Include="plugins\datatables\extensions\AutoFill\examples\scrolling.html" />
+    <Content Include="plugins\datatables\extensions\AutoFill\examples\simple.html" />
+    <Content Include="plugins\datatables\extensions\AutoFill\examples\step-callback.html" />
+    <Content Include="plugins\datatables\extensions\AutoFill\images\filler.png" />
+    <Content Include="plugins\datatables\extensions\AutoFill\js\dataTables.autoFill.js" />
+    <Content Include="plugins\datatables\extensions\AutoFill\js\dataTables.autoFill.min.js" />
+    <Content Include="plugins\datatables\extensions\AutoFill\Readme.txt" />
+    <Content Include="plugins\datatables\extensions\ColReorder\css\dataTables.colReorder.css" />
+    <Content Include="plugins\datatables\extensions\ColReorder\css\dataTables.colReorder.min.css" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\alt_insert.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\colvis.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\col_filter.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\fixedcolumns.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\fixedheader.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\index.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\jqueryui.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\new_init.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\predefined.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\realtime.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\reset.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\scrolling.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\server_side.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\simple.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\examples\state_save.html" />
+    <Content Include="plugins\datatables\extensions\ColReorder\images\insert.png" />
+    <Content Include="plugins\datatables\extensions\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="plugins\datatables\extensions\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="plugins\datatables\extensions\ColReorder\License.txt" />
+    <Content Include="plugins\datatables\extensions\ColVis\css\dataTables.colVis.css" />
+    <Content Include="plugins\datatables\extensions\ColVis\css\dataTables.colvis.jqueryui.css" />
+    <Content Include="plugins\datatables\extensions\ColVis\css\dataTables.colVis.min.css" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\button_order.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\exclude_columns.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\group_columns.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\index.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\jqueryui.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\mouseover.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\new_init.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\restore.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\simple.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\text.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\title_callback.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\two_tables.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\examples\two_tables_identical.html" />
+    <Content Include="plugins\datatables\extensions\ColVis\js\dataTables.colVis.js" />
+    <Content Include="plugins\datatables\extensions\ColVis\js\dataTables.colVis.min.js" />
+    <Content Include="plugins\datatables\extensions\ColVis\License.txt" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\css\dataTables.fixedColumns.css" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\css\dataTables.fixedColumns.min.css" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\bootstrap.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\colvis.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\col_filter.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\css_size.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\index.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\index_column.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\left_right_columns.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\right_column.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\rowspan.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\server-side-processing.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\simple.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\size_fixed.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\size_fluid.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\examples\two_columns.html" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\js\dataTables.fixedColumns.js" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\js\dataTables.fixedColumns.min.js" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\License.txt" />
+    <Content Include="plugins\datatables\extensions\FixedHeader\css\dataTables.fixedHeader.css" />
+    <Content Include="plugins\datatables\extensions\FixedHeader\css\dataTables.fixedHeader.min.css" />
+    <Content Include="plugins\datatables\extensions\FixedHeader\examples\header_footer.html" />
+    <Content Include="plugins\datatables\extensions\FixedHeader\examples\index.html" />
+    <Content Include="plugins\datatables\extensions\FixedHeader\examples\simple.html" />
+    <Content Include="plugins\datatables\extensions\FixedHeader\examples\top_left_right.html" />
+    <Content Include="plugins\datatables\extensions\FixedHeader\examples\two_tables.html" />
+    <Content Include="plugins\datatables\extensions\FixedHeader\examples\zIndexes.html" />
+    <Content Include="plugins\datatables\extensions\FixedHeader\js\dataTables.fixedHeader.js" />
+    <Content Include="plugins\datatables\extensions\FixedHeader\js\dataTables.fixedHeader.min.js" />
+    <Content Include="plugins\datatables\extensions\FixedHeader\Readme.txt" />
+    <Content Include="plugins\datatables\extensions\KeyTable\css\dataTables.keyTable.css" />
+    <Content Include="plugins\datatables\extensions\KeyTable\css\dataTables.keyTable.min.css" />
+    <Content Include="plugins\datatables\extensions\KeyTable\examples\events.html" />
+    <Content Include="plugins\datatables\extensions\KeyTable\examples\html.html" />
+    <Content Include="plugins\datatables\extensions\KeyTable\examples\index.html" />
+    <Content Include="plugins\datatables\extensions\KeyTable\examples\scrolling.html" />
+    <Content Include="plugins\datatables\extensions\KeyTable\examples\simple.html" />
+    <Content Include="plugins\datatables\extensions\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="plugins\datatables\extensions\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="plugins\datatables\extensions\KeyTable\Readme.txt" />
+    <Content Include="plugins\datatables\extensions\Responsive\css\dataTables.responsive.css" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\child-rows\column-control.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\child-rows\custom-renderer.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\child-rows\disable-child-rows.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\child-rows\index.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\child-rows\right-column.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\child-rows\whole-row-control.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\display-control\auto.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\display-control\classes.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\display-control\complexHeader.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\display-control\fixedHeader.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\display-control\index.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\display-control\init-classes.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\index.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\initialisation\ajax.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\initialisation\className.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\initialisation\default.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\initialisation\index.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\initialisation\new.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\initialisation\option.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\styling\bootstrap.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\styling\compact.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\styling\foundation.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\styling\index.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\examples\styling\scrolling.html" />
+    <Content Include="plugins\datatables\extensions\Responsive\js\dataTables.responsive.js" />
+    <Content Include="plugins\datatables\extensions\Responsive\js\dataTables.responsive.min.js" />
+    <Content Include="plugins\datatables\extensions\Responsive\License.txt" />
+    <Content Include="plugins\datatables\extensions\Scroller\css\dataTables.scroller.css" />
+    <Content Include="plugins\datatables\extensions\Scroller\css\dataTables.scroller.min.css" />
+    <Content Include="plugins\datatables\extensions\Scroller\examples\api_scrolling.html" />
+    <Content Include="plugins\datatables\extensions\Scroller\examples\data\2500.txt" />
+    <Content Include="plugins\datatables\extensions\Scroller\examples\data\ssp.php" />
+    <Content Include="plugins\datatables\extensions\Scroller\examples\index.html" />
+    <Content Include="plugins\datatables\extensions\Scroller\examples\large_js_source.html" />
+    <Content Include="plugins\datatables\extensions\Scroller\examples\server-side_processing.html" />
+    <Content Include="plugins\datatables\extensions\Scroller\examples\simple.html" />
+    <Content Include="plugins\datatables\extensions\Scroller\examples\state_saving.html" />
+    <Content Include="plugins\datatables\extensions\Scroller\images\loading-background.png" />
+    <Content Include="plugins\datatables\extensions\Scroller\js\dataTables.scroller.js" />
+    <Content Include="plugins\datatables\extensions\Scroller\js\dataTables.scroller.min.js" />
+    <Content Include="plugins\datatables\extensions\Scroller\Readme.txt" />
+    <Content Include="plugins\datatables\extensions\TableTools\css\dataTables.tableTools.css" />
+    <Content Include="plugins\datatables\extensions\TableTools\css\dataTables.tableTools.min.css" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\ajax.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\alter_buttons.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\bootstrap.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\button_text.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\collection.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\defaults.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\index.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\jqueryui.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\multiple_tables.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\multi_instance.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\new_init.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\pdf_message.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\plug-in.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\select_column.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\select_multi.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\select_os.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\select_single.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\simple.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\examples\swf_path.html" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\collection.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\collection_hover.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\copy.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\copy_hover.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\csv.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\csv_hover.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\pdf.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\pdf_hover.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\print.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\print_hover.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\xls.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\xls_hover.png" />
+    <Content Include="plugins\datatables\extensions\TableTools\js\dataTables.tableTools.js" />
+    <Content Include="plugins\datatables\extensions\TableTools\js\dataTables.tableTools.min.js" />
+    <Content Include="plugins\datatables\extensions\TableTools\swf\copy_csv_xls.swf" />
+    <Content Include="plugins\datatables\extensions\TableTools\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="plugins\datatables\images\sort_asc.png" />
+    <Content Include="plugins\datatables\images\sort_asc_disabled.png" />
+    <Content Include="plugins\datatables\images\sort_both.png" />
+    <Content Include="plugins\datatables\images\sort_desc.png" />
+    <Content Include="plugins\datatables\images\sort_desc_disabled.png" />
+    <Content Include="plugins\datatables\jquery.dataTables.css" />
+    <Content Include="plugins\datatables\jquery.dataTables.js" />
+    <Content Include="plugins\datatables\jquery.dataTables.min.css" />
+    <Content Include="plugins\datatables\jquery.dataTables.min.js" />
+    <Content Include="plugins\datatables\jquery.dataTables_themeroller.css" />
+    <Content Include="plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="plugins\datepicker\datepicker3.css" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.az.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.cy.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.da.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.de.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.el.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.es.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.et.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.fa.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.gl.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.he.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.id.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.is.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.it.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.kk.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.nl-BE.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.no.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.th.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.ua.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="plugins\datepicker\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="plugins\daterangepicker\daterangepicker.css" />
+    <Content Include="plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="plugins\daterangepicker\moment.js" />
+    <Content Include="plugins\daterangepicker\moment.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EntityDeploy Include="Data\adventureWorks.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>adventureWorks.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\adventureWorks.edmx.diagram">
+      <DependentUpon>adventureWorks.edmx</DependentUpon>
+    </Content>
+    <Content Include="plugins\datatables\extensions\ColReorder\Readme.md" />
+    <Content Include="plugins\datatables\extensions\ColVis\Readme.md" />
+    <Content Include="plugins\datatables\extensions\FixedColumns\Readme.md" />
+    <Content Include="plugins\datatables\extensions\Responsive\css\dataTables.responsive.scss" />
+    <Content Include="plugins\datatables\extensions\Responsive\Readme.md" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\psd\collection.psd" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\psd\copy document.psd" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\psd\file_types.psd" />
+    <Content Include="plugins\datatables\extensions\TableTools\images\psd\printer.psd" />
+    <Content Include="plugins\datatables\extensions\TableTools\Readme.md" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -195,7 +705,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -209,6 +718,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
