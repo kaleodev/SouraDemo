@@ -677,6 +677,7 @@
     <Content Include="plugins\datatables\extensions\TableTools\images\psd\file_types.psd" />
     <Content Include="plugins\datatables\extensions\TableTools\images\psd\printer.psd" />
     <Content Include="plugins\datatables\extensions\TableTools\Readme.md" />
+    <Content Include="Data\AdventureWorks2017.bak" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
